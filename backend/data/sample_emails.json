@@ -1,0 +1,442 @@
+[
+  {
+    "id": 1,
+    "sender_name": "Dr. R. Meenakshi",
+    "sender_email": "registrar@greenfield.edu.in",
+    "subject": "Revised academic calendar for Semester 8",
+    "body": "Dear Students,\n\nThe academic calendar for Semester 8 has been revised. Classes will commence on November 9 and the last working day is March 12. Final-year project reviews are scheduled for the second week of December, and each department will circulate its review timetable separately.\n\nAll students are requested to download the updated calendar from the college portal and plan their project submissions accordingly.\n\nRegards,\nOffice of the Registrar\nGreenfield Institute of Technology",
+    "date": "2026-11-02T08:10:00",
+    "category": "College Notification",
+    "is_read": false
+  },
+  {
+    "id": 2,
+    "sender_name": "Controller of Examinations",
+    "sender_email": "exams@greenfield.edu.in",
+    "subject": "End Semester Examination Timetable - November 2026",
+    "body": "Dear Students,\n\nThe End Semester Examinations for all B.Tech programmes will begin on November 24. Hall tickets will be available on the exam portal from November 10. Students must pay the examination fee before November 8 to be eligible for hall ticket download.\n\nStudents with attendance below 75% must submit a condonation request to their HOD by November 6.\n\nController of Examinations",
+    "date": "2026-11-01T17:30:00",
+    "category": "Examination Update",
+    "is_read": false
+  },
+  {
+    "id": 3,
+    "sender_name": "Examination Cell",
+    "sender_email": "revaluation@greenfield.edu.in",
+    "subject": "Revaluation results for Semester 7 published",
+    "body": "The results of the revaluation applications for the Semester 7 examinations have been published on the exam portal. Students whose marks have changed will receive an updated mark sheet in the department office within 7 working days. No further action is required if you did not apply for revaluation.",
+    "date": "2026-10-28T12:00:00",
+    "category": "Examination Update",
+    "is_read": true
+  },
+  {
+    "id": 4,
+    "sender_name": "Placement Cell",
+    "sender_email": "placements@greenfield.edu.in",
+    "subject": "Campus Drive: Nimbus Analytics hiring Associate Data Engineers",
+    "body": "Dear Final-Year Students,\n\nNimbus Analytics will conduct an on-campus recruitment drive on November 12 for the 2027 batch. They are hiring Associate Data Engineers (CTC 7 LPA). Eligibility: minimum 7.0 CGPA, no active backlogs, and good knowledge of SQL and Python.\n\nInterested students must register on the placement portal before November 5 and upload an updated resume.\n\nPlacement Cell, Greenfield Institute of Technology",
+    "date": "2026-11-02T09:20:00",
+    "category": "Placement",
+    "is_read": false
+  },
+  {
+    "id": 5,
+    "sender_name": "Placement Cell",
+    "sender_email": "placements@greenfield.edu.in",
+    "subject": "Pre-placement talk: Zentra Systems on November 7",
+    "body": "Zentra Systems will conduct a pre-placement talk in the main auditorium on November 7 at 2:00 PM. The company will present its hiring process for the 2027 batch, followed by an online assessment next week. Attendance is mandatory for all students who have registered for the Zentra drive.",
+    "date": "2026-10-31T15:45:00",
+    "category": "Placement",
+    "is_read": false
+  },
+  {
+    "id": 6,
+    "sender_name": "Resume Verification Desk",
+    "sender_email": "placements@greenfield.edu.in",
+    "subject": "Action needed: update your resume by November 3",
+    "body": "All students registered for campus placements must upload a verified resume to the placement portal by November 3. Resumes should be a single page in PDF format and include your CGPA, projects and internships. Unverified resumes will not be shared with recruiting companies.",
+    "date": "2026-11-01T10:05:00",
+    "category": "Placement",
+    "is_read": false
+  },
+  {
+    "id": 7,
+    "sender_name": "TalentBridge Jobs",
+    "sender_email": "jobs@talentbridge.in",
+    "subject": "Data Engineer - Bengaluru (0-2 years)",
+    "body": "A fast-growing analytics startup in Bengaluru is hiring a Data Engineer. Responsibilities: build and maintain ETL pipelines using Python, SQL, Apache Spark and Airflow. Requirements: 0-2 years of experience, strong SQL, and familiarity with cloud data warehouses. Salary: 8-12 LPA. Apply before November 15 using the link below.",
+    "date": "2026-11-02T07:40:00",
+    "category": "Job Opportunity",
+    "is_read": false
+  },
+  {
+    "id": 8,
+    "sender_name": "BrightPath Careers",
+    "sender_email": "careers@brightpath.in",
+    "subject": "Python Developer - Chennai (freshers welcome)",
+    "body": "BrightPath Software is hiring Python Developers for its Chennai office. You will build REST APIs with FastAPI and Django and work with PostgreSQL. Freshers with strong Python fundamentals are welcome to apply. CTC: 5-6 LPA. Send your resume to the address below before November 20.",
+    "date": "2026-10-30T11:30:00",
+    "category": "Job Opportunity",
+    "is_read": false
+  },
+  {
+    "id": 9,
+    "sender_name": "Orbitron Labs Hiring",
+    "sender_email": "hiring@orbitronlabs.ai",
+    "subject": "Machine Learning Engineer - NLP (open position)",
+    "body": "Orbitron Labs is looking for a Machine Learning Engineer to work on NLP and large language model applications. You should be comfortable with Python, PyTorch, and deploying ML models to production. 1-3 years of experience preferred. Apply on our careers page by November 18.",
+    "date": "2026-10-29T09:00:00",
+    "category": "Job Opportunity",
+    "is_read": false
+  },
+  {
+    "id": 10,
+    "sender_name": "Kestrel Fintech Careers",
+    "sender_email": "careers@kestrelfintech.com",
+    "subject": "Java Backend Developer - Hyderabad",
+    "body": "Kestrel Fintech has an opening for a Java Backend Developer in Hyderabad. The role involves building Spring Boot microservices for payment processing. Requirements: 2+ years of Java, Spring Boot and Kafka. CTC: 14-18 LPA. Apply by November 16.",
+    "date": "2026-10-27T14:20:00",
+    "category": "Job Opportunity",
+    "is_read": true
+  },
+  {
+    "id": 11,
+    "sender_name": "Sunrise Consumer Goods HR",
+    "sender_email": "hr@sunriseconsumer.in",
+    "subject": "Vacancy: Sales Manager - South Region",
+    "body": "Sunrise Consumer Goods is hiring a Sales Manager for the South Region. You will manage distributors, achieve quarterly sales targets, and lead a team of 8 field executives. Minimum 5 years of FMCG sales experience required. Send your CV by November 14.",
+    "date": "2026-10-26T10:10:00",
+    "category": "Job Opportunity",
+    "is_read": true
+  },
+  {
+    "id": 12,
+    "sender_name": "Nimbus Analytics Internships",
+    "sender_email": "internships@nimbusanalytics.com",
+    "subject": "Data Engineering Intern - 6 months, stipend Rs. 25,000",
+    "body": "Nimbus Analytics is offering a 6-month Data Engineering internship starting in January. Interns will work on data pipelines with Python, SQL and Airflow under a senior engineer. Stipend: Rs. 25,000 per month, with a pre-placement offer for top performers. Apply before November 10.",
+    "date": "2026-11-01T13:15:00",
+    "category": "Internship",
+    "is_read": false
+  },
+  {
+    "id": 13,
+    "sender_name": "PixelCraft Studio",
+    "sender_email": "interns@pixelcraft.io",
+    "subject": "Frontend Developer Intern (React) - apply now",
+    "body": "PixelCraft Studio is looking for a Frontend Developer Intern to build UI components in React and TypeScript. This is a 3-month remote internship with a stipend of Rs. 12,000 per month. Share your GitHub profile and portfolio before November 13.",
+    "date": "2026-10-30T16:00:00",
+    "category": "Internship",
+    "is_read": false
+  },
+  {
+    "id": 14,
+    "sender_name": "Orbitron Labs Research",
+    "sender_email": "research@orbitronlabs.ai",
+    "subject": "AI/ML Research Intern - winter cohort",
+    "body": "Orbitron Labs invites applications for its AI/ML Research Internship (winter cohort). You will work with researchers on machine learning experiments, including model evaluation and dataset creation. Strong Python and linear algebra skills required. Applications close on November 17.",
+    "date": "2026-10-28T08:45:00",
+    "category": "Internship",
+    "is_read": false
+  },
+  {
+    "id": 15,
+    "sender_name": "Sneha Rao - Recruiter",
+    "sender_email": "sneha.rao@brightpath.in",
+    "subject": "Interview Invitation: Associate Software Engineer - Round 2",
+    "body": "Hi,\n\nCongratulations on clearing the first round! We would like to invite you for the Round 2 technical interview for the Associate Software Engineer role at BrightPath Software. It will be held on November 4 at 11:00 AM on Google Meet. Please keep your resume and ID proof ready and confirm your availability by replying to this email.\n\nRegards,\nSneha Rao",
+    "date": "2026-11-02T06:50:00",
+    "category": "Interview Invitation",
+    "is_read": false
+  },
+  {
+    "id": 16,
+    "sender_name": "Talent Acquisition",
+    "sender_email": "talent@zentrasystems.com",
+    "subject": "Technical interview scheduled - Data Analyst role",
+    "body": "Dear candidate, you have been shortlisted for the Data Analyst position at Zentra Systems. Your panel interview is scheduled for November 6 at 3:30 PM. The panel will cover SQL, statistics and a short case study. Kindly confirm your slot at least 24 hours before the interview.",
+    "date": "2026-10-31T11:25:00",
+    "category": "Interview Invitation",
+    "is_read": false
+  },
+  {
+    "id": 17,
+    "sender_name": "Zentra Systems Hiring",
+    "sender_email": "assessments@zentrasystems.com",
+    "subject": "Online assessment link - valid until November 5",
+    "body": "Hello, as part of the Zentra Systems hiring process, please complete the online assessment using the link below. The test has 3 sections (aptitude, coding and SQL) and takes 90 minutes. The link expires on November 5 at 11:59 PM and can only be attempted once.",
+    "date": "2026-11-01T09:30:00",
+    "category": "Assessment",
+    "is_read": false
+  },
+  {
+    "id": 18,
+    "sender_name": "Kestrel Fintech HR",
+    "sender_email": "hr@kestrelfintech.com",
+    "subject": "Offer of employment - Junior Python Developer",
+    "body": "Dear candidate,\n\nWe are delighted to offer you the position of Junior Python Developer at Kestrel Fintech with an annual CTC of 6.5 LPA. Your joining date is January 11. Please sign and return the attached offer letter by November 12 to confirm your acceptance.\n\nHR Team, Kestrel Fintech",
+    "date": "2026-10-30T18:00:00",
+    "category": "Offer Letter",
+    "is_read": false
+  },
+  {
+    "id": 19,
+    "sender_name": "Codeforge",
+    "sender_email": "hello@codeforge.dev",
+    "subject": "CodeSprint 2026 - registrations open, Rs. 1,00,000 in prizes",
+    "body": "CodeSprint 2026, India's largest student coding competition, is open for registrations. The contest will be held online on November 21 and includes algorithmic problems of varying difficulty. Prizes worth Rs. 1,00,000 and internship interviews with sponsors for the top 50 participants. Register before November 18.",
+    "date": "2026-11-01T12:00:00",
+    "category": "Coding Competition",
+    "is_read": false
+  },
+  {
+    "id": 20,
+    "sender_name": "HackTheCampus Team",
+    "sender_email": "team@hackthecampus.in",
+    "subject": "HackTheCampus: 24-hour hackathon on Nov 14-15",
+    "body": "Join HackTheCampus, a 24-hour hackathon for college teams. Dates: November 14-15. Team size: up to 4 members. Themes: AI for healthcare, fintech and sustainability. Free food, mentorship and certificates for all participants. Register your team before November 9.",
+    "date": "2026-10-30T09:40:00",
+    "category": "Coding Competition",
+    "is_read": false
+  },
+  {
+    "id": 21,
+    "sender_name": "AlgoArena",
+    "sender_email": "contests@algoarena.com",
+    "subject": "Reminder: Weekly Contest 142 starts Sunday 8 PM",
+    "body": "This is a reminder that AlgoArena Weekly Contest 142 starts on Sunday at 8:00 PM IST. The contest has four problems and lasts 90 minutes. Rating changes will be published within 24 hours after the contest ends.",
+    "date": "2026-11-01T18:00:00",
+    "category": "Coding Competition",
+    "is_read": true
+  },
+  {
+    "id": 22,
+    "sender_name": "Arjun Mehta",
+    "sender_email": "arjun.mehta@vertexlogistics.com",
+    "subject": "Proposal: strategic partnership for logistics software",
+    "body": "Dear Sir/Madam,\n\nI am the Business Development Head at Vertex Logistics. We would like to propose a strategic partnership in which your company supplies inventory software to our 40 warehouses while we provide logistics support to your customers. I have attached a one-page proposal and would welcome a discussion this week. Could you let me know your availability?\n\nBest regards,\nArjun Mehta",
+    "date": "2026-11-02T08:55:00",
+    "category": "Business Proposal",
+    "is_read": false
+  },
+  {
+    "id": 23,
+    "sender_name": "Lina Fernandes",
+    "sender_email": "lina@growthreach.co",
+    "subject": "Reseller partnership opportunity - 20% margin",
+    "body": "Hello, GrowthReach is expanding its reseller network across South India. We offer partners a 20% margin on every contract, marketing support, and a dedicated account manager. If you are interested in becoming a reseller, please reply and we will share the partnership agreement and pricing sheet.",
+    "date": "2026-10-31T13:30:00",
+    "category": "Business Proposal",
+    "is_read": false
+  },
+  {
+    "id": 24,
+    "sender_name": "Ramesh Iyer",
+    "sender_email": "ramesh@iyertraders.in",
+    "subject": "Enquiry about bulk order of 500 units",
+    "body": "Hello,\n\nI run Iyer Traders in Coimbatore and am interested in purchasing 500 units of your product for the festive season. Could you share your bulk pricing, delivery timeline and payment terms? I need delivery before November 25, so a quick quotation would be appreciated.\n\nThanks,\nRamesh Iyer",
+    "date": "2026-11-02T07:20:00",
+    "category": "Client Enquiry",
+    "is_read": false
+  },
+  {
+    "id": 25,
+    "sender_name": "Silverline Hospital Procurement",
+    "sender_email": "procurement@silverlinehospital.org",
+    "subject": "Request for quotation - annual maintenance contract",
+    "body": "Dear Vendor, Silverline Hospital invites quotations for the annual maintenance contract of our IT infrastructure covering 200 workstations and 6 servers. Please send your quotation and service-level terms by November 9. Shortlisted vendors will be invited for a presentation.",
+    "date": "2026-10-30T10:50:00",
+    "category": "Client Enquiry",
+    "is_read": false
+  },
+  {
+    "id": 26,
+    "sender_name": "Priya Nair",
+    "sender_email": "priya.nair@bluelotus.in",
+    "subject": "Product demo request for our team",
+    "body": "Hi, our team at Blue Lotus Interiors is evaluating your software and would like to see a product demo. We are a team of 15 and mainly need customer management features. Could we schedule a 30-minute demo sometime next week?",
+    "date": "2026-10-29T15:10:00",
+    "category": "Client Enquiry",
+    "is_read": true
+  },
+  {
+    "id": 27,
+    "sender_name": "PixelWorks Studio Accounts",
+    "sender_email": "accounts@pixelworks.studio",
+    "subject": "Invoice #INV-2026-1187 - Rs. 48,500 due November 10",
+    "body": "Dear customer, please find attached invoice #INV-2026-1187 for Rs. 48,500 for design services delivered in October. The payment is due on November 10. Please pay by bank transfer and share the payment reference so we can confirm receipt.",
+    "date": "2026-11-01T11:00:00",
+    "category": "Invoice",
+    "is_read": false
+  },
+  {
+    "id": 28,
+    "sender_name": "Accounts Team",
+    "sender_email": "accounts@cloudnest.io",
+    "subject": "Payment received for invoice #INV-2026-1143",
+    "body": "Thank you. We have received your payment of Rs. 21,000 against invoice #INV-2026-1143 on October 29. A receipt is attached for your records. No further action is required.",
+    "date": "2026-10-29T17:20:00",
+    "category": "Invoice",
+    "is_read": true
+  },
+  {
+    "id": 29,
+    "sender_name": "Kavya Raman",
+    "sender_email": "kavya.raman@company-mail.com",
+    "subject": "Meeting invite: Q4 planning sync - Tuesday 3 PM",
+    "body": "Hi team, I have scheduled the Q4 planning sync for Tuesday at 3:00 PM in Conference Room B (also on Teams). Agenda: roadmap review, resource allocation and client escalations. Please add your updates to the shared document before the meeting and accept the calendar invite.",
+    "date": "2026-11-02T09:05:00",
+    "category": "Meeting",
+    "is_read": false
+  },
+  {
+    "id": 30,
+    "sender_name": "Calendar Assistant",
+    "sender_email": "calendar@company-mail.com",
+    "subject": "Reminder: client call with Vertex Logistics tomorrow 10:30 AM",
+    "body": "This is a reminder that you have a client call with Vertex Logistics tomorrow at 10:30 AM. Dial-in details are in the calendar invite. Please review the proposal notes before the call.",
+    "date": "2026-11-01T16:30:00",
+    "category": "Meeting",
+    "is_read": false
+  },
+  {
+    "id": 31,
+    "sender_name": "Dev Lead - Karthik",
+    "sender_email": "karthik@company-mail.com",
+    "subject": "Sprint 14 status: payments module 80% complete",
+    "body": "Team, here is the Sprint 14 update. The payments module is 80% complete, and API integration testing begins on Wednesday. Two blockers: pending credentials from the bank sandbox and an unresolved bug in refund handling. Please update your tickets by Thursday so we can plan the release.",
+    "date": "2026-11-02T08:30:00",
+    "category": "Project Update",
+    "is_read": false
+  },
+  {
+    "id": 32,
+    "sender_name": "HR Operations",
+    "sender_email": "hr@company-mail.com",
+    "subject": "Reminder: submit timesheets and choose health insurance plan by Friday",
+    "body": "Dear employees, please submit your timesheets for October by Friday. The annual health insurance enrollment is also open until Friday. Employees who do not choose a plan will be placed in the default plan.",
+    "date": "2026-11-01T14:00:00",
+    "category": "HR / Office",
+    "is_read": false
+  },
+  {
+    "id": 33,
+    "sender_name": "Unity Bank Alerts",
+    "sender_email": "alerts@unitybank.co.in",
+    "subject": "Debit alert: Rs. 4,299 spent on your card ending 4821",
+    "body": "Dear customer, Rs. 4,299 was spent on your debit card ending 4821 at an online merchant on November 1. If this was not you, please block your card immediately using the mobile app or call our helpline. Never share your OTP or PIN with anyone.",
+    "date": "2026-11-01T20:12:00",
+    "category": "Bank",
+    "is_read": false
+  },
+  {
+    "id": 34,
+    "sender_name": "Unity Bank Cards",
+    "sender_email": "statements@unitybank.co.in",
+    "subject": "Your credit card statement is ready - due November 12",
+    "body": "Your credit card statement for October is ready. Total amount due: Rs. 18,430. Minimum amount due: Rs. 920. Please pay by November 12 to avoid late payment charges.",
+    "date": "2026-10-30T07:00:00",
+    "category": "Bank",
+    "is_read": true
+  },
+  {
+    "id": 35,
+    "sender_name": "ShopNest",
+    "sender_email": "offers@shopnest.com",
+    "subject": "Diwali Mega Sale: up to 70% off, ends tonight",
+    "body": "Our biggest sale of the year is here! Get up to 70% off on electronics, fashion and home decor. Use code DIWALI10 for an extra 10% off on orders above Rs. 1,999. Free delivery on all orders. Hurry, sale ends tonight at midnight!",
+    "date": "2026-11-02T06:00:00",
+    "category": "Shopping Promotion",
+    "is_read": false
+  },
+  {
+    "id": 36,
+    "sender_name": "Urban Kicks",
+    "sender_email": "hello@urbankicks.com",
+    "subject": "Your cart misses you: extra 10% off sneakers",
+    "body": "You left something in your cart! Complete your purchase in the next 24 hours and get an extra 10% off on sneakers. Use code COMEBACK10 at checkout. Limited stock available.",
+    "date": "2026-10-31T19:30:00",
+    "category": "Shopping Promotion",
+    "is_read": true
+  },
+  {
+    "id": 37,
+    "sender_name": "Data Engineering Weekly",
+    "sender_email": "editor@deweekly.io",
+    "subject": "Data Engineering Weekly #212: lakehouse trends and Airflow 3 tips",
+    "body": "This week's newsletter covers the rise of lakehouse architectures, practical Apache Spark tuning tips, and what is new in Airflow for building reliable data pipelines. We also feature a case study on migrating ETL jobs from batch to streaming, and a reader survey on Python tooling.",
+    "date": "2026-10-31T06:30:00",
+    "category": "Newsletter",
+    "is_read": false
+  },
+  {
+    "id": 38,
+    "sender_name": "The Startup Digest",
+    "sender_email": "hello@startupdigest.in",
+    "subject": "The Startup Digest: funding roundup and founder stories",
+    "body": "This week in Indian startups: three fintech companies raised Series A rounds, a logistics startup announced its expansion into tier-2 cities, and founders share lessons on pricing and customer acquisition. Read the full stories on our website.",
+    "date": "2026-10-30T06:30:00",
+    "category": "Newsletter",
+    "is_read": true
+  },
+  {
+    "id": 39,
+    "sender_name": "Anita",
+    "sender_email": "anita.k@mailbox.com",
+    "subject": "Weekend plans? Family lunch on Sunday",
+    "body": "Hey! Amma is planning a family lunch this Sunday at home and everyone is coming. Can you make it? Also, don't forget to bring the photos from the Pongal trip. Let me know by Friday so we can plan the food.",
+    "date": "2026-11-01T21:00:00",
+    "category": "Personal",
+    "is_read": false
+  },
+  {
+    "id": 40,
+    "sender_name": "Dad",
+    "sender_email": "rajan.family@mailbox.com",
+    "subject": "Pongal trip photos and travel tickets",
+    "body": "Hi, I have attached the photos from our last trip and the tickets for the next one in January. Please check the dates and let me know if they work. Take care of your health and eat on time.",
+    "date": "2026-10-29T20:30:00",
+    "category": "Personal",
+    "is_read": true
+  },
+  {
+    "id": 41,
+    "sender_name": "ConnectIn",
+    "sender_email": "notifications@connectin.com",
+    "subject": "Rahul Kumar and 3 others viewed your profile",
+    "body": "Rahul Kumar and 3 others viewed your profile this week. Upgrade to Premium to see everyone who viewed your profile. You also have 5 new connection suggestions based on your network.",
+    "date": "2026-11-01T08:00:00",
+    "category": "Social Media",
+    "is_read": true
+  },
+  {
+    "id": 42,
+    "sender_name": "Snapgram",
+    "sender_email": "no-reply@snapgram.com",
+    "subject": "You have 12 new notifications",
+    "body": "Meera liked your photo. Aditya commented on your story and 10 other people started following you. Open Snapgram to see all your notifications and catch up with your friends.",
+    "date": "2026-10-31T22:10:00",
+    "category": "Social Media",
+    "is_read": true
+  },
+  {
+    "id": 43,
+    "sender_name": "Library Office",
+    "sender_email": "library@greenfield.edu.in",
+    "subject": "Library dues notice: return books before November 8",
+    "body": "Our records show that you have 2 books overdue from the central library. Please return them before November 8 to avoid a fine of Rs. 5 per day. Students with pending dues will not receive their hall tickets for the end semester examinations.",
+    "date": "2026-10-31T09:10:00",
+    "category": "College Notification",
+    "is_read": false
+  },
+  {
+    "id": 44,
+    "sender_name": "Cultural Committee",
+    "sender_email": "culture@greenfield.edu.in",
+    "subject": "Annual Day volunteers needed - register by November 6",
+    "body": "The college Annual Day will be celebrated on December 4. The cultural committee is looking for student volunteers for stage management, hospitality and decoration. Interested students can register using the form on the college portal by November 6. Volunteers will receive activity points and certificates.",
+    "date": "2026-10-29T13:00:00",
+    "category": "College Notification",
+    "is_read": true
+  }
+]
