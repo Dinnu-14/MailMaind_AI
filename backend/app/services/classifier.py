@@ -1,20 +1,24 @@
-"""Personalised email classification: Gemini when available, rule-based fallback otherwise."""
+"""Personalised email classification: Gemini LLM, Scikit-Learn ML, and Rule-based engine."""
+from datetime import datetime
 import re
 import threading
-from datetime import datetime
-
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
+from app.ml.classifier import predict_category
+from app.ml.scorer import calculate_personalized_score
 from app.models import Email, EmailClassification, Feedback, UserPreference, UserProfile
 from app.services import gemini
-from app.services.lexicon import (CATEGORIES, CATEGORY_SIGNALS, JOB_ROLE_CATEGORIES,
-                                  join_list, keyword_hit)
+from app.services.lexicon import (
+    CATEGORIES, CATEGORY_SIGNALS, JOB_ROLE_CATEGORIES,
+    join_list, keyword_hit
+)
 
 URGENCY = re.compile(
     r"deadline|urgent|expires|last date|ends tonight|closes on|within 24 hours|immediately|"
     r"\b(before|by|until|due)\b[^.]{0,20}\b(november|nov|friday|tonight|tomorrow)|due on|starts sunday|tomorrow",
-    re.I)
+    re.I
+)
 
 
 def priority_for(score: int) -> str:
@@ -56,6 +60,31 @@ def prefs_dict(p: UserPreference) -> dict:
         "boosted": list(p.boosted_categories or []),
         "excluded": list(p.excluded_categories or []),
         "keywords": list(p.keywords or []),
+    }
+
+
+# ---------------------------------------------------------------- scikit-learn ML engine
+def ml_classify(e: Email, prefs: dict) -> dict:
+    """Classify using trained Scikit-learn TF-IDF + MultinomialNB model and personalization scorer."""
+    text = email_text(e)
+    ml_pred = predict_category(f"{e.subject} {e.body}")
+    scored = calculate_personalized_score(
+        email_text=text,
+        subject=e.subject,
+        body=e.body,
+        dataset_category=e.category,
+        ml_prediction=ml_pred,
+        user_prefs=prefs,
+        is_read=e.is_read
+    )
+    return {
+        "email_id": e.id,
+        "is_important": scored["is_important"],
+        "category": scored["category"],
+        "priority": scored["priority"],
+        "relevance_score": scored["relevance_score"],
+        "reason": f"[ML: {ml_pred.get('category')} ({int(ml_pred.get('confidence', 0.5) * 100)}%)] {scored['reason']}",
+        "engine": "scikit-learn",
     }
 
 
@@ -187,32 +216,31 @@ def _apply_feedback(db: Session, profile_id: int, row: dict) -> dict:
     return row
 
 
-_lock = threading.RLock()  # concurrent requests must not classify the same profile at the same time
+_lock = threading.RLock()
 
 
 def classify_all(db: Session, profile: UserProfile, engine: str = "auto") -> dict:
     with _lock:
         try:
             return _classify_all(db, profile, engine)
-        except IntegrityError:  # another worker process inserted the same rows first
+        except IntegrityError:
             db.rollback()
             return _classify_all(db, profile, engine)
 
 
 def _classify_all(db: Session, profile: UserProfile, engine: str = "auto") -> dict:
     """(Re)classify every email for the profile and persist the results.
-
-    engine: "auto" (Gemini if available, else rules), "rules", or "gemini" (raises if unavailable).
-    Returns a summary that states honestly which engine produced the results.
+    Supported engines: 'auto', 'ml', 'gemini', 'rules'.
     """
     pref = db.query(UserPreference).filter_by(profile_id=profile.id).one()
     prefs = prefs_dict(pref)
     emails = db.query(Email).order_by(Email.id).all()
     rows: dict[int, dict] = {}
-    used, error = "rules", None
+    used, error = "scikit-learn", None
 
     if engine == "gemini" and not gemini.is_configured():
         raise gemini.GeminiError("GEMINI_API_KEY is not configured on the server")
+
     want_gemini = engine == "gemini" or (engine == "auto" and gemini.is_available())
     if engine == "auto" and gemini.is_configured() and not gemini.is_available():
         error = f"Gemini temporarily skipped after a recent failure: {gemini.last_error}"
@@ -224,18 +252,25 @@ def _classify_all(db: Session, profile: UserProfile, engine: str = "auto") -> di
         except gemini.GeminiError as exc:
             if engine == "gemini":
                 raise
-            error = f"Gemini failed ({exc}); used the local rule-based classifier instead."
+            error = f"Gemini failed ({exc}); falling back to local Scikit-Learn ML classifier."
             rows = {}
 
-    fallback_count = 0
-    for e in emails:
-        if e.id not in rows:
-            rows[e.id] = rule_classify(e, prefs)
-            fallback_count += 1
-    if used == "gemini" and fallback_count == len(emails):
+    if engine == "rules":
         used = "rules"
-    elif used == "gemini" and fallback_count:
-        error = f"Gemini returned no valid result for {fallback_count} email(s); rules filled the gap."
+        for e in emails:
+            rows[e.id] = rule_classify(e, prefs)
+    else:
+        # For 'ml' or fallback in 'auto'
+        for e in emails:
+            if e.id not in rows:
+                try:
+                    rows[e.id] = ml_classify(e, prefs)
+                    if used != "gemini":
+                        used = "scikit-learn"
+                except Exception:
+                    rows[e.id] = rule_classify(e, prefs)
+                    if used != "gemini":
+                        used = "rules"
 
     existing = {c.email_id: c for c in db.query(EmailClassification).filter_by(profile_id=profile.id)}
     now = datetime.utcnow()
@@ -249,8 +284,14 @@ def _classify_all(db: Session, profile: UserProfile, engine: str = "auto") -> di
     pref.last_engine, pref.last_error, pref.classified_at = used, error, now
     db.commit()
     important = sum(1 for r in rows.values() if r["is_important"])
-    return {"engine": used, "error": error, "total": len(emails), "important": important,
-            "other": len(emails) - important, "gemini_configured": gemini.is_configured()}
+    return {
+        "engine": used,
+        "error": error,
+        "total": len(emails),
+        "important": important,
+        "other": len(emails) - important,
+        "gemini_configured": gemini.is_configured()
+    }
 
 
 def ensure_classified(db: Session, profile: UserProfile) -> None:
@@ -266,5 +307,5 @@ def ensure_classified(db: Session, profile: UserProfile) -> None:
         return
     with _lock:
         db.expire_all()
-        if stale():  # re-check: another request may have finished while we waited
+        if stale():
             classify_all(db, profile, "auto")
