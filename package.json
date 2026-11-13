@@ -1,0 +1,10 @@
+{
+  "name": "mailmind-ai",
+  "version": "2.0.0",
+  "private": true,
+  "description": "MailMind AI – Personalized Intelligent Email Classification and Management System",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build"
+  }
+}
+

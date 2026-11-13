@@ -7,7 +7,7 @@ export interface Classification {
   priority: Priority;
   relevance_score: number;
   reason: string;
-  engine: "rules" | "gemini";
+  engine: string;
 }
 
 export interface EmailItem {
@@ -34,7 +34,7 @@ export interface Summary {
   deadlines: string[];
   required_action: string;
   sender_request: string;
-  engine: "rules" | "gemini";
+  engine: string;
 }
 
 export interface EmailDetail extends EmailItem {
@@ -93,14 +93,21 @@ export interface Stats {
   engine: string;
   engine_error?: string | null;
   gemini_configured: boolean;
+  google_oauth_configured?: boolean;
   onboarded: boolean;
   recent_activity: { kind: string; text: string; created_at: string }[];
 }
 
 export interface Health {
   status: string;
+  app_name?: string;
+  version?: string;
+  environment?: string;
   gemini_configured: boolean;
+  google_oauth_configured?: boolean;
   mode: string;
+  database_type?: string;
+  model_status?: string;
   gemini_last_error?: string | null;
 }
 
@@ -111,4 +118,27 @@ export interface EmailQuery {
   important?: boolean;
   unread?: boolean;
   sort?: "date_desc" | "date_asc" | "score_desc";
+}
+
+export interface MLPredictResult {
+  category: string;
+  confidence: number;
+  probabilities: Record<string, number>;
+  engine: string;
+}
+
+export interface MLMetrics {
+  model_name: string;
+  vectorizer_name: string;
+  test_accuracy: number;
+  classes: string[];
+  vocabulary_size?: number;
+  split_ratio?: string;
+}
+
+export interface GoogleAuthStatus {
+  connected: boolean;
+  email?: string | null;
+  last_synced_at?: string | null;
+  configured: boolean;
 }

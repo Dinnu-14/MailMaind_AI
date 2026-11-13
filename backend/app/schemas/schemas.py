@@ -130,6 +130,7 @@ class MLPredictOut(BaseModel):
 
 
 class MLMetricsOut(BaseModel):
+    model_config = {"protected_namespaces": ()}
     model_name: str
     vectorizer_name: str
     vocabulary_size: Optional[int] = None
@@ -163,6 +164,7 @@ class GmailSyncOut(BaseModel):
 
 # ------------------------------------------------------------------ Health Check
 class HealthOut(BaseModel):
+    model_config = {"protected_namespaces": ()}
     status: str
     app_name: str
     version: str

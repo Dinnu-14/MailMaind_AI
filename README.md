@@ -1,79 +1,123 @@
-# AI Smart Email Assistant
+# MailMind AI – Personalized Intelligent Email Classification and Management System
 
-A personalized email classification demo. You chat with an AI assistant about who you are and what emails matter to you. It then splits a fixed set of 44 sample emails into a **Priority Inbox** (relevant to you) and an **All Inbox** (everything, never deleted). Switch profile or change your mind in chat and the *same emails* are re-ranked instantly.
+MailMind AI is a full-stack, AI-powered email intelligence platform. It features an interactive onboarding & continuous preference chatbot, ML category classification (Scikit-Learn TF-IDF + Multinomial Naive Bayes), Google Gemini LLM reasoning, Gmail OAuth 2.0 integration, and a modern React Vite dashboard.
 
-- **Frontend:** React, Vite, TypeScript, Tailwind CSS, React Router, Axios, Lucide
-- **Backend:** FastAPI, Pydantic, SQLAlchemy, SQLite (Postgres optional)
-- **AI:** Gemini API when `GEMINI_API_KEY` is set, otherwise a built-in rule-based engine (demo mode). Every classification, summary and chat reply is labelled with the engine that produced it. If Gemini fails, the app says so and falls back. It never pretends a call succeeded.
+---
 
-## Features
+## 🚀 Live Vercel Deployment Architecture
 
-| Area | What it does |
-|---|---|
-| Onboarding chatbot | Asks profession, then interests, then a follow-up; extracts categories and keywords; saves everything |
-| Continuous chatbot | "Show only college emails", "Include internships", "Show Data Engineering jobs", "Stop prioritizing shopping emails", "Find interview invitations" and more; reclassifies immediately |
-| Classification | Per email: `is_important`, category, priority (High / Medium / Low / Other), relevance score 0-100, plain-language reason; stored in the database |
-| Inboxes | Priority Inbox and All Inbox with category, priority, status and sort filters, plus natural-language search (`unread interviews`, `from placement`) |
-| Email detail | Full body, AI summary (purpose, key info, deadlines, action, request), category, priority, score, reason, feedback buttons |
-| Profiles | Student, Businessperson, Job Seeker, Working Professional, Custom; each keeps its own preferences and chat |
-| Dashboard | Totals, important, other, unread, priority breakdown, categories, engine status, recent activity |
-| Extras | Dark mode, responsive layout, Settings page for manual preference edits, Categories page, feedback that overrides the AI |
+MailMind AI is optimized for **Vercel Serverless Hosting**:
 
-## Run locally
+- **Frontend**: React 18, Vite, TypeScript, Tailwind CSS, Lucide Icons, React Router SPA.
+- **Backend**: FastAPI running inside Vercel-compatible Python Serverless Functions.
+- **Database**: Hosted PostgreSQL (Neon / Supabase) via SQLAlchemy serverless connection management (`NullPool`).
+- **AI/ML**: Pretrained Scikit-Learn TF-IDF vectorizer + Multinomial Naive Bayes classifier (< 200KB) + hybrid personalized priority scoring + Google Gemini API.
+- **Integrations**: Google OAuth 2.0 for Gmail with secure token storage.
 
-Requires Python 3.10+ and Node 18+.
+---
 
-```bash
-# 1. Backend  (http://localhost:8000, API docs at /docs)
-cd backend
-python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-cp .env.example .env                                   # optional: add GEMINI_API_KEY
-uvicorn app.main:app --reload --port 8000
+## 🛠️ Step-by-Step Vercel Deployment Guide (Windows)
 
-# 2. Frontend  (http://localhost:5173), in a second terminal
-cd frontend
-npm install
-cp .env.example .env                                   # VITE_API_URL=http://localhost:8000
-npm run dev
-```
+### Step 1: Initialize Git and Commit All Files
+Open PowerShell in this project folder (`d:\Mailmaind_AI_project`):
 
-The database and sample emails are created automatically on first start (`backend/data/app.db`). Delete that file to reset the demo.
-
-### Tests and build
-
-```bash
-cd backend && pip install pytest && pytest -q      # 17 API tests, run in demo mode
-cd frontend && npm run build                       # type-check + production build
-```
-
-## Gemini configuration
-
-1. Create a key at https://aistudio.google.com/apikey
-2. Put it in `backend/.env`: `GEMINI_API_KEY=your-key` (optionally `GEMINI_MODEL`, default `gemini-2.5-flash`)
-3. Restart the backend. The top banner disappears, and results are tagged **Gemini** instead of **Local rules**.
-
-The key lives only on the backend; the frontend never sees it. Settings has buttons to reclassify with a chosen engine, and forcing Gemini without a key returns a clear error.
-
-## Deploy
-
-See [docs/deployment-guide.md](docs/deployment-guide.md) for Vercel (frontend), Render (backend) and the SQLite persistence limitation.
-
-## GitHub
-
-```bash
+```powershell
+# 1. Initialize git repository
 git init
+
+# 2. Add all deployment files
 git add .
-git commit -m "AI Smart Email Assistant"
+
+# 3. Create initial commit
+git commit -m "MailMind AI - Complete Vercel deployment ready"
+
+# 4. Set default branch to main
 git branch -M main
-git remote add origin https://github.com/<your-username>/ai-smart-email-assistant.git
+```
+
+### Step 2: Push to GitHub
+1. Create a new empty repository on [GitHub](https://github.com/new) named `mailmind-ai`.
+2. Run the push commands:
+
+```powershell
+git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/mailmind-ai.git
 git push -u origin main
 ```
 
-`.env` files are git-ignored. Only the `.env.example` files are committed.
+---
 
-## Docs
+### Step 3: Create a Free Hosted PostgreSQL Database
+1. Go to [https://neon.tech](https://neon.tech) and create a free project named `mailmind-db`.
+2. Under **Connection Details**, ensure **Pooled connection** is checked.
+3. Copy the `postgresql://...` connection string.
 
-- [Architecture](docs/architecture.md)
-- [Project documentation and demo guide](docs/project-documentation.md)
-- [Deployment guide](docs/deployment-guide.md)
+---
+
+### Step 4: Import and Deploy on Vercel
+1. Go to [https://vercel.com/new](https://vercel.com/new).
+2. Connect your GitHub account and click **Import** on your `mailmind-ai` repository.
+3. **Project Settings**:
+   - **Framework Preset**: Other (or Vite)
+   - **Root Directory**: `./` (leave as repository root so Vercel deploys both frontend and `api/` serverless functions together)
+   - **Build Command**: `cd frontend && npm install && npm run build` (handled automatically by `vercel.json`)
+   - **Output Directory**: `frontend/dist`
+4. **Environment Variables**:
+   Click **Environment Variables** and add:
+
+   | Variable Name | Value / Description | Required? |
+   |---|---|---|
+   | `DATABASE_URL` | Your Neon or Supabase PostgreSQL connection string | **Yes** |
+   | `SECRET_KEY` | Any random 32-character string | **Yes** |
+   | `ENVIRONMENT` | `production` | **Yes** |
+   | `LLM_API_KEY` | Your Google Gemini API key from [AI Studio](https://aistudio.google.com/apikey) | Recommended |
+   | `GOOGLE_CLIENT_ID` | Google Cloud OAuth Client ID | Optional (for Gmail sync) |
+   | `GOOGLE_CLIENT_SECRET`| Google Cloud OAuth Client Secret | Optional (for Gmail sync) |
+   | `GOOGLE_REDIRECT_URI` | `https://your-domain.vercel.app/api/auth/google/callback` | Optional |
+
+5. Click **Deploy**.
+
+---
+
+## 🔍 Fixing the `frontend-p2u5.vercel.app` Error
+
+If you previously deployed only the `frontend/` folder, you likely saw:
+> `Cannot reach the backend at http://localhost:8000` or a CORS / Mixed Content failure.
+
+### Why this happens:
+1. When only the `frontend/` folder is selected as the Vercel root directory, Vercel only deploys the static files. The Python backend is not deployed.
+2. In production, browsers block requests from an HTTPS website (`https://frontend-p2u5.vercel.app`) to an insecure `http://localhost:8000` address.
+
+### The Fix:
+- **Solution (Recommended)**: In Vercel Project Settings, change **Root Directory** from `frontend` to `./` (root). Redeploy the project. Vercel will build both the frontend and the Python serverless API under the same domain.
+- **Alternative**: If you want to keep `frontend-p2u5` separate:
+  1. Create a second Vercel project for the backend API from this repository root.
+  2. In your `frontend-p2u5` project settings, add:
+     `VITE_API_BASE_URL = https://<your-deployed-backend>.vercel.app`
+  3. Redeploy `frontend-p2u5`.
+
+---
+
+## 🧪 Local Development (Windows)
+
+```powershell
+# 1. Start Backend API
+& "D:\anaconda\python.exe" -m uvicorn app.main:app --app-dir backend --reload --port 8000
+
+# 2. Start Frontend (in a second PowerShell terminal)
+cd frontend
+npm run dev
+```
+
+Visit [http://localhost:5173](http://localhost:5173). The Swagger documentation is at [http://localhost:8000/docs](http://localhost:8000/docs).
+
+---
+
+## 📋 Production Verification Checklist
+
+- [x] Frontend builds cleanly without TypeScript errors (`npm run build`).
+- [x] Vercel serverless entrypoint `api/index.py` configured with clean path resolution.
+- [x] Database uses hosted PostgreSQL connection with `NullPool` serverless compatibility.
+- [x] Scikit-Learn TF-IDF model loads into memory as a singleton without retraining on invocations.
+- [x] Single-origin routing configured in `vercel.json` to prevent Mixed Content & CORS errors.
+- [x] SPA client routing rewrites configured to avoid 404 on page refresh.
+- [x] Google OAuth 2.0 endpoints for Gmail integration ready for production callback.
